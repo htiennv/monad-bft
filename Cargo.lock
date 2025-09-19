@@ -5808,7 +5808,6 @@ version = "0.1.0"
 dependencies = [
  "inventory",
  "monad-rpc-docs-derive",
- "once_cell",
  "schemars 0.8.22",
  "serde",
 ]

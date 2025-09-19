@@ -13,16 +13,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-use std::{borrow::BorrowMut, collections::HashMap};
+use std::{borrow::BorrowMut, collections::HashMap, sync::LazyLock};
 
 pub use inventory;
 pub use monad_rpc_docs_derive::rpc;
-pub use once_cell::sync::Lazy;
 use serde::Serialize;
 
 inventory::collect!(RpcMethodInfo);
 
-pub static FUNCTION_MAP: Lazy<HashMap<String, &RpcMethodInfo>> = Lazy::new(|| {
+pub static FUNCTION_MAP: LazyLock<HashMap<String, &RpcMethodInfo>> = LazyLock::new(|| {
     let mut map = HashMap::new();
     for info in inventory::iter::<RpcMethodInfo> {
         map.insert(info.name.to_string(), info);

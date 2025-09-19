@@ -12,6 +12,5 @@ bench = false
 monad-rpc-docs-derive = { workspace = true }
 
 inventory = { workspace = true }
-once_cell = { workspace = true }
 schemars = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
